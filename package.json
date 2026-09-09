@@ -1,0 +1,30 @@
+{
+  "name": "taskforge",
+  "productName": "TaskForge",
+  "version": "1.0.0",
+  "description": "TaskForge - gestor de tareas de escritorio",
+  "main": "main.js",
+  "author": "TaskForge",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.taskforge.app",
+    "productName": "TaskForge",
+    "directories": {"output": "release"},
+    "files": ["main.js","index.html","styles.css","renderer.js","package.json"],
+    "win": {"target": [{"target": "nsis", "arch": ["x64"]}], "artifactName": "TaskForge-Setup-${version}.exe"},
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "TaskForge"
+    }
+  }
+}
